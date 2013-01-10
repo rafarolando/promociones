@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nombre: MyString
+  descripcion: MyString
+  fechaini: 2012-06-30
+  fechafin: 2012-06-30
+  id_empresa: 1
+
+two:
+  nombre: MyString
+  descripcion: MyString
+  fechaini: 2012-06-30
+  fechafin: 2012-06-30
+  id_empresa: 1

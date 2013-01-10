@@ -1,0 +1,25 @@
+<h1>Listing supercategoria</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Id categoria</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @supercategoria.each do |supercategorium| %>
+  <tr>
+    <td><%= supercategorium.nombre %></td>
+    <td><%= supercategorium.id_categoria %></td>
+    <td><%= link_to 'Show', supercategorium %></td><% if can? :update, @supercategoria %>
+    <td><%= link_to 'Edit', edit_supercategorium_path(supercategorium) %></td><% end %> <% if can? :destroy, @supercategoria %>
+    <td><%= link_to 'Destroy', supercategorium, confirm: 'Are you sure?', method: :delete %></td><% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Supercategorium', new_supercategorium_path %>

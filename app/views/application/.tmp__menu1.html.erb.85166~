@@ -1,0 +1,24 @@
+<nav id="menu1">
+    <ul>
+        <li>
+            <%= link_to "Inicio", :controller => "principal", :action => "index" %>
+        </li>
+        <li>
+        	     <%= link_to "Acerca de", :controller => "acercade", :action => "index" %>
+     
+        </li>
+        <li>
+            <%= link_to "Empresas", :controller => "empresas", :action => "index" %>
+        </li>
+        <li>
+        	     <%= link_to "Contactanos", :controller => "contactos", :action => "index" %>
+     
+        </li>
+        <li>
+            <a href="#">Publicite</a>
+        </li>
+        <li>
+            <%= link_to "Configuración", :controller => "configuraciones", :action => "index" %>
+        </li>
+    </ul>
+</nav>

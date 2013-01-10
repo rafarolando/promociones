@@ -1,0 +1,77 @@
+<h1>Cupones</h1>
+<table>
+    <tr>
+        <th>
+            Descripcion
+        </th>
+        <th>
+            Descuento
+        </th>
+        <th>
+            Cantidad
+        </th>
+        <th>
+            Fecha de inicio
+        </th>
+        <th>
+            Fecha de finalizacion
+        </th>
+        <th>
+            Id empresa
+        </th>
+        <th colspan="3" >
+        </th>
+        <th>
+        </th>
+        <th>
+        </th>
+    </tr>
+    <% if current_user %>
+    <% if current_user.tipo == "empresa" %>
+    <% van=current_user.id %>
+    <% @empresas = Empresa.find(:all, :conditions => {:id_usuario =>" #{van}"}) %>
+	<% empid="null"%>
+    <% @empresas.each do |empresa| %>
+    <% empid=empresa.id %>
+    <% end %>
+    <% @cupons = Cupon.find(:all, :conditions => {:id_empresa =>" #{empid}"}) %>
+    <% end %>
+    <% end %>
+	
+    <% @cupons.each do |cupon| %>
+    <tr>
+        <td>
+            <%= cupon.descripcion %>
+        </td>
+        <td>
+            <%= cupon.descuento+"%" %>
+        </td>
+        <td>
+            <%= cupon.cantidad %>
+        </td>
+        <td>
+            <%= cupon.fechaini %>
+        </td>
+        <td>
+            <%= cupon.fechafin %>
+        </td>
+        <td>
+            <%= cupon.id_empresa %>
+        </td>
+        <td>
+            <%= link_to 'Ver', cupon %>
+        </td>
+        <% if can? :update, @cupons %>
+        <td>
+            <%= link_to 'Editar', edit_cupon_path(cupon) %>
+        </td>
+        <% end %><% if can? :destroy, @cupons %>
+        <td>
+            <%= link_to 'Eliminar', cupon, confirm: 'Are you sure?', method: :delete %>
+        </td>
+        <% end %>
+    </tr>
+    <% end %>
+</table>
+<br/>
+<%= link_to 'Crear Cupon', new_cupon_path %>

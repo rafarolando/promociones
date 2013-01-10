@@ -1,0 +1,38 @@
+<%= form_for(@descripcion) do |f| %>
+  <% if @descripcion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@descripcion.errors.count, "error") %> prohibited this descripcion from being saved:</h2>
+
+      <ul>
+      <% @descripcion.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %><br />
+    <%= f.text_field :descripcion, :required=>"true", :placeholder=>"Describa su empresa",:autofocus=>"true" %>
+  </div>
+  <div class="field">
+    <%= f.label :direccion %><br />
+    <%= f.text_field :direccion, :required=>"true", :placeholder=>"La direccion de su empresa" %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br />
+    <%= f.text_field :telefono, :required=>"true", :placeholder=>"Telefono de su empresa" %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email, :required=>"true", :placeholder=>"mail de su empresa" %>
+  </div>
+  <div class="field">
+    <%= f.label :id_empresa %><br />
+    <%= f.number_field :id_empresa %>
+	<%= f.select :id_empresa, options_for_select(Empresa.all.collect	{ |c| [c.nombre, c.id] }.insert(0, '')), :required=>"true" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,55 @@
+<div id="formlogin">
+    <h1 align="center">Crear su cuenta</h1>
+    Le ofrece acceso a todos los servicios del sistema y a otros sitios donde aparezca
+    <br/>
+    Toda la información es necesaria.<hr width=90% align="center" color="b3dced" />
+    <p>
+    </p>
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+    <p>
+    </p>
+    <%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+    <div class="error_messages">
+        <h2><%= image_tag "error.png" , :size=>"20x20" %> Se encontró los siguientes errores. </h2>
+        <ul>
+            <% for message in @user.errors.full_messages %>
+            <li>
+                <%= message.html_safe %>
+            </li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+    <div class="field">
+        <% @hola = "<span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <%= f.label :email do %>
+        <% "Correo electronico <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+        <%= f.text_field :email, :placeholder => "ejemplo@hotmail.com", :required => "true", :type => "email", :autofocus => "true" %>
+    </div>
+    <div class="field">
+        <%= f.label :password do %>
+        <% "Contraseña<span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+        <%= f.password_field :password %>
+    </div>
+    <div class="field">
+        <%= f.label :password_confirmation do %>
+        <% "Confirme contraseña <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+        <%= f.password_field :password_confirmation %>
+    </div>
+    <%= f.text_field :tipo, :value=>"usuario", :type=>"hidden" %>
+	
+	
+	
+    Hacer clic en <strong>Acepto</strong>
+    significa que acepta el Contrato de servicios de <a href="/empresas/acuerdo">ahiteveo</a> y la declaración de privacidad.
+    <div class="actions">
+        <%= f.submit "Acepto" %>
+    </div>
+    <% end %>
+</div>

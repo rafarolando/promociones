@@ -1,0 +1,20 @@
+<h1>Listing ciudads</h1>
+<table>
+	<tr>
+		<th> Nombre </th>
+		<th> Id empresa </th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
+	<% @ciudads.each do |ciudad| %>
+	<tr>
+		<td> <%= ciudad.nombre %> </td>
+		<td> <%= ciudad.id_empresa %> </td>
+		<td> <%= link_to 'Show', ciudad %> </td><% if can? :update, @ciudads %> <td> <%= link_to 'Edit', edit_ciudad_path(ciudad) %> </td> <% end %><% if can? :destroy, @ciudads %> <td> <%= link_to 'Destroy', ciudad, confirm: 'Are you sure?', method: :delete %> </td><% end %>
+	</tr>
+	<% end %>
+</table>
+<br/>
+<%= link_to 'New Ciudad', new_ciudad_path %>
+

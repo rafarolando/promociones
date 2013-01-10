@@ -1,0 +1,56 @@
+<h1>Empresa</h1>
+<p id="notice">
+    <%= notice %>
+</p>
+<table border="0">
+    <tr>
+        <td rowspan="5">
+            <%= image_tag @empresa.imagen , :size=>"200x200" %>
+        </td>
+        <td>
+            <b>Nombre:</b>
+            <%= @empresa.nombre %>
+        </td>
+    </tr>
+    <% @categorias = Categorium.find(:all, :conditions => {:id =>" #{@empresa.id_categoria}"}) %>
+    <% van= "null" %>
+    <% @categorias.each do |departamento| %>
+    <% van=departamento.nombre %>
+    <% end %>
+    <tr>
+        <td>
+            <b>Categoria:</b>
+            <%= van %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Descripcion de empresa</b>
+            <%= @empresa.descripcion %>
+        </td>
+    </tr>
+    <% @departamentos = Departamento.find(:all, :conditions => {:id =>" #{@empresa.id_departamento}"}) %>
+    <% van= "null" %>
+    <% @departamentos.each do |departamento| %>
+    <% van=departamento.nombre %>
+    <% end %>
+    <tr>
+        <td>
+            <b>Departamento</b>
+            <%= van %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Dirección</b>
+            <%= @empresa.direccion %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Horario</b>
+            <%= @empresa.horario %>
+        </td>
+    </tr>
+</table>
+<%= link_to 'Atras', :controller=>"principal", :action=>"index" %>

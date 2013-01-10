@@ -1,0 +1,2 @@
+module SupercategoriaHelper
+end

@@ -1,0 +1,39 @@
+
+/* Efecto Polaroid con CSS3
+	Tarjuccino.com */
+
+#contenedor{
+}
+#contenedor ul.polaroid{
+	list-style: none;
+}
+#contenedor ul.polaroid li{
+	float: left;
+	display: inline;
+}
+#contenedor ul.polaroid a{
+	display: block;
+	width: 250px;
+	height: 156px;	
+	margin: 5px;
+	text-align: center;
+	border: none;
+	background-color: #FFF;
+	text-decoration: none;
+	padding: 10px 10px 25px 10px;
+	box-shadow: 0 3px 6px #666;
+	-webkit-box-shadow: 0 3px 6px #666;
+	transition: all 0.5s ease-in-out;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+}
+#contenedor ul.polaroid a:hover{
+	z-index: 5;	
+	transform: scale(1.5,1.5);
+	-ms-transform: scale(1.5,1.5); /* IE 9 */
+	-webkit-transform: scale(1.5,1.5); /* Safari and Chrome */
+	-o-transform: scale(1.5,1.5); /* Opera */
+	-moz-transform: scale(1.5,1.5); /* Firefox */
+}
+#contenedor ul.polaroid a:after { content: attr(title); }

@@ -1,0 +1,68 @@
+<%= form_for(@promocion) do |f| %>
+<% if @promocion.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(@promocion.errors.count, "error") %>prohibited this promocion from being saved:</h2>
+    <ul>
+        <% @promocion.errors.full_messages.each do |msg| %>
+        <li>
+            <%= msg %>
+        </li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+<div class="field">
+    <%= f.label :nombre do %>
+        <% "Nombre <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+    
+    <%= f.text_field :nombre, :required =>"true",:placeholder=>"Nombre de promocion", :autofocus=>"true" %>
+</div>
+<div class="field">
+    <%= f.label :descripcion do %>
+        <% "Descripción <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+    <%= f.text_area :descripcion,:cols=>25,:rows=>2, :required =>"true",:placeholder=>"Descripcion de la promocion" %>
+    <textarea class="ckeditor" cols="80" id="editor1" name="editor1" rows="10">
+        This is some 
+    </textarea>
+</div>
+<div class="field">
+    <%= f.label :fecha_de_inicio do %>
+        <% "Fecha de inicio <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+    <%= f.date_select :fechaini, :required =>"true" %>
+</div>
+<div class="field">
+    <%= f.label :fecha_de_finalizacion do %>
+        <% "Fecha de finalización <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+    <%= f.date_select :fechafin, :required =>"true" %>
+</div>
+<div class="field">
+    <%= f.label :Categoria do %>
+        <% "Categoría <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+    <%= f.select :id_supercategoria, options_for_select(Supercategorium.all.collect	{ |c| [c.nombre, c.id] }.insert(0, '')), :required=>"true" %>
+</div>
+<% if current_user %>
+<% if current_user.tipo == "empresa" %>
+<% van=current_user.id %>
+<% @empresas = Empresa.find(:all, :conditions => {:id_usuario =>" #{van}"}) %>
+<% empid="null" %>
+<% @empresas.each do |empresa| %>
+<% empid=empresa.id %>
+<% end %>
+<%= f.text_field :id_empresa, :value=>"#{empid}", :type=>"hidden" %>
+<% else %>
+<div class="field">
+    <%= f.label :Empresa %>
+    <br/>
+    <%= f.select :id_empresa, options_for_select(Empresa.all.collect	{ |c| [c.nombre, c.id] }.insert(0, '')) %>
+</div>
+<% end %>
+<% end %>
+<div class="actions">
+    <%= f.submit %>
+</div>
+<% end %>

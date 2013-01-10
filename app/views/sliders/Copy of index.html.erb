@@ -1,0 +1,53 @@
+<h2 align="center">Mostrando slides actuales en publicidad</h2>
+<hr/><h4 align="right"><%= link_to image_tag("plus.png", :value=>"rails")+"Agregar", new_slider_path %>
+</h4>
+<hr/>
+<table>
+    <tr>
+        <th>
+            Image
+        </th>
+        <th>
+            Id empresa
+        </th>
+        <th>
+        </th>
+        <th>
+        </th>
+        <th>
+        </th>
+    </tr>
+	<div id="contenedor">
+	<ul class="polaroid">
+		
+    <% @sliders.each do |slider| %>
+	
+	
+    	<li><a title="Efecto Polaroid con CSS3"> <%= image_tag slider.image, :size=>"200x100" %></a></li>
+   
+    <tr>
+        <td>
+            <%= image_tag slider.image, :size=>"200x100" %>
+        </td>
+        <td>
+            <%= slider.id_empresa %>
+        </td>
+        <td>
+            <%= link_to 'Show', slider %>
+        </td>
+        <td>
+            <%= link_to 'Edit', edit_slider_path(slider) %>
+        </td>
+        <td>
+            <%= link_to 'Destroy', slider, confirm: 'Are you sure?', method: :delete %>
+        </td>
+    </tr>
+	
+	
+    <% end %>
+	    </ul>
+</div>
+
+</table>
+<br/>
+

@@ -1,0 +1,55 @@
+<%= form_for(@empresa) do |f| %>
+  <% if @empresa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@empresa.errors.count, "error") %> prohibited this empresa from being saved:</h2>
+
+      <ul>
+      <% @empresa.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre, :required =>"true", :placeholder=>"nombre de empresa", :autofocus => "true" %>
+  </div>
+  <div class="field">
+   
+	<%= f.text_field :estado, :value=>"0", :type=>"hidden" %>
+ 
+  </div>
+  <div class="field">
+    <%= f.label :imagen %><br />
+    <%= f.file_field :imagen, :required =>"true" %>
+  </div>
+  <div class="field">
+    <%= f.label :categoria %><br />
+	<%= f.select :id_categoria, options_for_select(Categorium.all.collect	{ |c| [c.nombre, c.id] }.insert(0, '')), :required=>"true" %>
+ 
+  </div>
+   <hr>
+  Ubicacion
+  <hr>
+  
+  <div class="field">
+    <%= f.label :id_departamento %><br />
+	<%= f.select :id_departamento, options_for_select(Departamento.all.collect	{ |c| [c.nombre, c.id] }.insert(0, '')), :required=>"true" %>
+  </div>
+  <div class="field">
+    <%= f.label :id_ciudad %><br />
+	<%= f.select :id_ciudad, options_for_select(Ciudad.all.collect	{ |c| [c.nombre, c.id] }.insert(0, '')), :required=>"true" %>
+  </div>
+   <hr>
+  usario
+  <hr>
+  
+  <div class="field">
+    <%= f.label :id_usuario %><br />
+    <%= f.number_field :id_usuario %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

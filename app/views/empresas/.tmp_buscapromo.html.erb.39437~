@@ -1,0 +1,130 @@
+<% if @promocions.blank? %>
+<% else %>
+<%= render "tooltip" %>
+<h2 align="center">Mostrando  Promociones</h2>
+<table>
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Descripcion
+        </th>
+        <th>
+            Fecha inicial
+        </th>
+        <th>
+            Fecha de finalizacion
+        </th>
+        <th>
+            Empresa
+        </th>
+        <th>
+            <a href="#" title="Anote su codigo y tendra rebajas importantes">Codigo</a>
+        </th>
+    </tr>
+    <% @promocions.each do |promo| %>
+    <tr>
+        <td>
+            <%= promo.nombre %>
+        </td>
+        <td>
+            <%= promo.descripcion %>
+        </td>
+        <td>
+            <%= promo.fechaini %>
+        </td>
+        <td>
+            <%= promo.fechafin %>
+        </td>
+        <td>
+            <% @hola = Empresa.find(:all, :conditions => {:id =>"#{promo.id_empresa}"}) %>
+            <% @hola.each do |c| %>
+            <% link_to "#{c.nombre}", :controller => "empresas", :action => "show", :id =>"#{promo.id_empresa}" %>
+            <a class="tooltip" href="#"><%= c.nombre %>
+                <span class="custom info"><img src="/images/Info.png" alt="Informacion" height="48" width="48" />
+                    <font color="black">
+                        <em>Informacion</em>
+                        Horario de atencion: <%= c.horario %>
+                        <br>
+                        Direccion: <%= c.direccion %>
+                        <br>
+                        <% @departamentos = Departamento.find(:all, :conditions => {:id =>" #{c.id_departamento}"}) %>
+                        <% van= "null" %>
+                        <% @departamentos.each do |departamento| %>
+                        <% van=departamento.nombre %>
+                        <% end %>
+                        Departamento: <%= van %>
+                    </font>
+                </span>
+            </a>
+            <% end %>
+        </td>
+		
+		<% if current_user %>
+			<% if current_user.tipo == "usuario" %>
+			<font size="7">
+            <td>
+                <% slidesclases = %w{ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z } %>
+                <%5.times do %>
+                <% rand_slides= rand(slidesclases.length) %>
+                <%= slidesclases[rand_slides] %>
+                <% end %>
+            </td>
+        </font>
+			<% end %>
+
+<% else %>
+<td>
+ <%= link_to "Regístrese", signup_path %>
+</td>
+<% end %>
+		
+        
+		
+		
+		
+    </tr>
+    <% end %>
+</table>
+<% end %>
+<br/>
+<% if @cupons.blank? %>
+<% else %>
+<h2 align="center">Mostrando Cupones</h2>
+<table>
+    <tr>
+        <th>
+            Descripcion
+        </th>
+        <th>
+            Fecha de inicio
+        </th>
+        <th>
+            Fecha de finalizacion
+        </th>
+        <th>
+            Empresa
+        </th>
+    </tr>
+    <% @cupons.each do |cupone| %>
+    <tr>
+        <td>
+            <%= cupone.descripcion %>
+        </td>
+        <td>
+            <%= cupone.fechaini %>
+        </td>
+        <td>
+            <%= cupone.fechafin %>
+        </td>
+        <td>
+            <% @hola = Empresa.find(:all, :conditions => {:id =>"#{cupone.id_empresa}"}) %>
+            <% @hola.each do |c| %>
+            <%= link_to "#{c.nombre}", :controller => "empresas", :action => "show", :id =>"#{cupone.id_empresa}" %>
+            <% end %>
+        </td>
+    </tr>
+    <% end %>
+</table>
+<% end %>

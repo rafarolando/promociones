@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<html>
+<head>
+  <title>Promociones10</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <script>
+      $(document).ready(function () {
+
+          var options = {};
+          options['dots'] = true;
+          options['preview'] = true;
+          $('.border_box').css({
+              'marginBottom':'40px'
+          });
+          $('.box_skitter_large').skitter(options);
+
+          // Highlight
+          //$('pre.code').highlight({source:1, zebra:1, indent:'space', list:'ol'});
+      });
+  </script>
+</head>
+<!--inicio de body-->
+<body class="<%= params[:controller] %>" >
+<section id="todo">
+  <header>
+    <div id="logo">
+      <%= link_to image_tag("alternativa12.png", :widht => "100", :height => "100"), "/principal/index" %>
+
+    </div>
+    <!-- inicio de login-->
+    <div id="login">
+      <% if current_user %>
+          Sesión iniciada como: <%= current_user.email %>.<%= link_to "Cerrar sesión", logout_path %>
+      <% else %>
+          <%= render "new" %>
+      <% end %>
+    </div>
+    <!-- fin de login-->
+  </header>
+  <!--inicio de menu --><%= render "menu1" %>
+  <!--fin de menu --><!--inicio de menu2--><!--fin de menu2-->
+  <br/>
+  <!--inicio de slides-->
+
+  <% if controller_path == "principal" %>
+      <center>
+        <%= render "slide" %>
+      </center>
+  <% end %>
+
+  <!--fin  de slides-->
+  <section id="conten2">
+    <section id="menu2">
+      <!--inicio menu 2-->
+
+      <!--fin menu 2-->
+    </section>
+    <script type="text/javascript">
+        $(document).ready(function ($) {
+            $('#mega-1').dcVerticalMegaMenu({
+                rowItems:'1',
+                speed:'fast',
+                effect:'slide',
+                direction:'right'
+            });
+        });
+    </script>
+    <section id="cuerpoprincipal">
+      <br/>
+      <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+      <br/>
+      <%= yield %>
+    </section>
+    <section id="menu3">
+      <!--inicio menu 2-->
+
+      <!--fin menu 2-->
+    </section>
+  </section>
+
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+</body>
+
+
+<!--fin de body--><!--inicio de footer-->
+<footer>
+  <center>
+    <span class="copyright">Copyright &copy; 2012 <a href="#">iRomero</a>,<a href="#">rMendez</a>,<a href="#">rTapia</a>,<a href="#">rFernadez</a>,<a href="#">aDaza</a>,All Rights Reserved</span>
+    <br>
+    <a href="/contact/">Contactos</a>
+    | <a href="/terms.html">terminos de uso</a>
+    | <a href="/privacy.html">Privacidad</a>
+    | <a href="/about">Sobre nosotros</a>
+    | <a href="//support.twitter.com">Ayuda</a>
+    | <a href="http://blog.es.twitter.com">Blog</a>
+    | <a href="/download">Móvil</a>
+    | <a href="/jobs">Trabajos</a>
+    | <a href="/tos">Condiciones</a>
+    | <a href="/privacy">Privacidad </a>
+    | <a href="//business.twitter.com/es/advertise/start">Publicidad</a>
+  </center>
+</footer>
+<!--fin de footer-->
+</section>
+</html>

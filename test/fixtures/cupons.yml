@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  descripcion: MyString
+  descuento: MyString
+  cantidad: 1
+  fechaini: 2012-06-30
+  fechafin: 2012-06-30
+  id_empresa: 1
+
+two:
+  descripcion: MyString
+  descuento: MyString
+  cantidad: 1
+  fechaini: 2012-06-30
+  fechafin: 2012-06-30
+  id_empresa: 1

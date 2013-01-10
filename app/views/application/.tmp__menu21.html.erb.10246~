@@ -1,0 +1,19 @@
+
+<div id="main">
+
+<ul id="navigationMenu">
+    <li>
+	    <a class="home" href="/principal/index">
+            <span>Inicio</span>
+        </a>
+    </li>
+    
+  
+    <li>
+    	<a class="portfolio" href="/principal/categoriasindex">
+            <span>Categorias</span>
+        </a>
+    </li>
+    
+</ul>
+</div>

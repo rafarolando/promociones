@@ -1,0 +1,63 @@
+<div id="caja1">
+  <div id="titulo" align="center">
+    Crear su cuenta como proveedor
+  </div><br>
+
+	Le ofrece acceso a todos los servicios del sistema y a otros sitios donde aparezca
+  <br />
+	Toda la información es necesaria.
+  <hr  width=90% align="center" color="b3dced"  />
+  <p></p>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %> <p></p>
+
+  <%= form_for @user, :url => { :action => "createempresa" }   do |f| %>
+    <% if @user.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% for message in @user.errors.full_messages %>
+            <li>
+              <%= message %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <table class="formc">
+
+      <tr>
+      <div class="field">
+        <td > <%= f.label :email %></td>
+        <td > <%= f.text_field :email, :placeholder => "ejemplo@hotmail.com", :required => "true", :type => "email", :autofocus => "true"   %> </td>
+      </div>
+      </tr>
+      <tr>
+      <div class="field">
+        <td> <%= f.label :password %></td><td> <%= f.password_field :password %> </td>
+      </div>
+      </tr>
+      <tr>
+      <div class="field">
+        <td> <%= f.label :password_confirmation %></td><td> <%= f.password_field :password_confirmation %> </td>
+      </div>
+      </tr>
+	 
+      <div class="field">
+        
+		 <%= f.text_field :tipo , :value=> "empresa", :type=>"hidden" %>
+      </div>
+      
+    </table>
+    <hr   />
+    Hacer clic en <strong>Continuar</strong> significa que acepta el Contrato de servicios de iDeveloperSystem y la declaración de privacidad.
+    <div class="actions">
+      <%= f.submit "Continuar" %>
+    </div>
+  <% end %>
+</div>
+
+<br />
+<br />
+<br />

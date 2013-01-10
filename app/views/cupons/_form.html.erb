@@ -1,0 +1,87 @@
+<%= form_for(@cupon) do |f| %>
+  <% if @cupon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cupon.errors.count, "error") %> prohibited this cupon from being saved:</h2>
+
+      <ul>
+      <% @cupon.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion do %>
+        <% "Descripción <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+    <%= f.text_area :descripcion, :required =>"true",:placeholder=>"Deuna descripcion de su cupon" ,:autofocus =>"true",:cols=>"33", :rows=>"8"  %>
+  </div>
+  <div class="field">
+    <%= f.label :descuento do %>
+        <% "Descuento <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+    <%= f.number_field :descuento, :required =>"true",:placeholder=>"especifique el descuento", :min=>1 ,:max =>100 %>%
+  </div>
+  <div class="field">
+    <%= f.label :cantidad  do %>
+        <% "Cantidad <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+    <%= f.number_field :cantidad, :required =>"true",:placeholder=>"especifique una cantidad", :min=>1 %>cupones
+  </div>
+  <div class="field">
+    <%= f.label :fechaini  do %>
+        <% "Fecha de inicio <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+    <%= f.date_select :fechaini, :required =>"true" %>
+  </div>
+  <div class="field">
+    <%= f.label :fechafin  do %>
+        <% "Fecha de finalizacion <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+    <%= f.date_select :fechafin,:required =>"true" %>
+  </div>
+  <div class="field">
+    <%= f.label :id_supercategoria  do %>
+        <% "Categoria <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+	<%= f.select :id_supercategoria, options_for_select(Supercategorium.all.collect	{ |c| [c.nombre, c.id] }.insert(0, '')), :required=>"true" %>
+ 
+  </div>
+
+   
+ 
+  
+  
+  <% if current_user %>
+<% if current_user.tipo == "empresa" %>
+<% van=current_user.id %>
+<% @empresas = Empresa.find(:all, :conditions => {:id_usuario =>" #{van}"}) %>
+<% empid="null" %>
+<% @empresas.each do |empresa| %>
+<% empid=empresa.id %>
+<% end %>
+
+  <div class="field">
+
+<%= f.text_field :id_empresa, :value=>"#{empid}", :type=>"hidden" %>
+ </div>
+ 
+<% else %>
+<div class="field">
+    <%= f.label :Empresa %>
+    <br/>
+   <%= f.select :id_empresa, options_for_select(Empresa.all.collect	{ |c| [c.nombre, c.id] }.insert(0, '')), :required=>"true" %>
+ 
+</div>
+<% end %>
+<% end %>
+  
+  
+  
+  
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

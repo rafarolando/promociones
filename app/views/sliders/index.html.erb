@@ -1,0 +1,25 @@
+<h2 align="center">Mostrando slides actuales en publicidad</h2>
+<hr/><h4 align="right"><%= link_to image_tag("plus.png", :value=>"rails")+"Agregar", new_slider_path %>
+</h4>
+<hr/>
+<div id="contenedor">
+    <ul class="polaroid">
+        <% @sliders.each do |slider| %>
+        <li>
+            <a title=<%= slider.id_empresa %>>
+            	<%= image_tag slider.image, :size=>"200x100" %><% if can? :update, @sliders %>
+                <%= button_to 'Editar', edit_slider_path(slider) %><% end %> <% if can? :destroy, @sliders %>
+                <%= button_to 'Quitar', slider, confirm: 'Are you sure?', method: :delete %><% end %>
+            </a>
+        </li>
+        <% end %>
+    </ul>
+</div>
+<br/>
+
+
+
+
+
+
+

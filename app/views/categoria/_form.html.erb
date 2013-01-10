@@ -1,0 +1,35 @@
+<%= form_for(@categorium) do |f| %>
+  <% if @categorium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@categorium.errors.count, "error") %> prohibited this categorium from being saved:</h2>
+
+      <ul>
+      <% @categorium.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre do %>
+        <% "Nombre de categoria <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+
+<br />
+    <%= f.text_field :nombre, :required =>"true", :placeholder=>"ejemplo: cosmeticos",:autofocus=>"true"  %> 
+  </div>
+  <% if current_user %>
+<% if current_user.tipo == "Admin" %>
+  <div class="field">
+    <%= f.label :id_ciudad %><br />
+    <%= f.number_field :id_ciudad %>
+  </div>
+  
+  
+  <% end %>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,48 @@
+<%= form_for(@promocion) do |f| %>
+  <% if @promocion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@promocion.errors.count, "error") %> prohibited this promocion from being saved:</h2>
+
+      <ul>
+      <% @promocion.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre, :required =>"true",:placeholder=>"Nombre de promocion", :autofocus=>"true" %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %><br />
+    <%= f.text_area :descripcion,:cols=>25,:rows=>2, :required =>"true",:placeholder=>"Descripcion de la promocion" %>
+    	<textarea class="ckeditor" cols="80" id="editor1" name="editor1" rows="10">This is some </textarea>
+	
+  </div>
+  <div class="field">
+    <%= f.label :fechaini %><br />
+    <%= f.date_select :fechaini, :required =>"true" %>
+  </div>
+  <div class="field">
+    <%= f.label :fechafin %><br />
+    <%= f.date_select :fechafin, :required =>"true" %>
+  </div>
+  <div class="field">
+    <%= f.label :id_supercategoria %><br />
+	<%= f.select :id_supercategoria, options_for_select(Supercategorium.all.collect	{ |c| [c.nombre, c.id] }.insert(0, '')), :required=>"true" %>
+ 
+  </div>
+ 
+  <div class="field">
+    <%= f.label :id_empresa %><br />
+   
+	<%= f.select :id_empresa, options_for_select(Empresa.all.collect	{ |c| [c.nombre, c.id] }.insert(0, '')) %>
+ 
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

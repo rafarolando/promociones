@@ -1,0 +1,60 @@
+<%= form_for(@persona) do |f| %>
+  <% if @persona.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@persona.errors.count, "error") %> prohibited this persona from being saved:</h2>
+
+      <ul>
+      <% @persona.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ci do %>
+        <% "Cédula de identidad<span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+    <%= f.text_field :ci, :required=>"true", :placeholder=>"Su ci", :autofocus=>"true" %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre do %>
+        <% "Nombre<span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+    <%= f.text_field :nombre, :required=>"true", :placeholder=>"Su nombre" %>
+  </div>
+  <div class="field">
+    <%= f.label :apaterno  do %>
+        <% "Apellido paterno<span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+    <%= f.text_field :apaterno, :required=>"true", :placeholder=>"Su apellido paterno" %>
+  </div>
+  <div class="field">
+    <%= f.label :amaterno  do %>
+        <% "Apellido materno<span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+    <%= f.text_field :amaterno, :required=>"true", :placeholder=>"Su apellido materno" %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono  do %>
+        <% "Teléfono o celular<span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+    <%= f.text_field :telefono, :required=>"true", :placeholder=>"Telefono o celular" %>
+  </div>
+  
+  
+  <div class="field">
+    <br/>
+    <% $emailuser %>
+    <% @users = User.find(:all, :conditions => {:email => "#{$emailuser}" }) %>
+    <% @users.each do |h| %>
+    <% @hola = h.id %>
+	
+    <% end %>
+	
+    <%= f.text_field :id_usuario, :value=>"#{@hola}" , :readonly=>"readonly" ,:type=>"hidden" %>
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

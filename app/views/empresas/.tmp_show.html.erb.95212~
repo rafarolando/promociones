@@ -1,0 +1,25 @@
+<p id="notice">
+	<%= notice %>
+</p>
+
+<table border="0" >
+	<tr >
+		<td rowspan="5"> <%= image_tag @empresa.imagen , :size=>"200x200" %> </td>
+		<td><b>Nombre:</b> <%= @empresa.nombre %></td>
+	</tr>
+	<tr>
+
+		<td><b>Id categoria:</b> <%= @empresa.id_categoria %> </td>
+	</tr>
+	<tr>
+		<td><b>Descripcion de empresa</b> <%= @empresa.id_categoria %> </td>
+
+	</tr>
+	<tr>
+		<td><b>Departamento</b> <%= @empresa.id_categoria %> </td>
+
+	</tr>
+
+</table>
+
+<%= link_to 'Atras', :controller=>"principal", :action=>"index" %>

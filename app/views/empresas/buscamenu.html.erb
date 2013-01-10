@@ -1,0 +1,88 @@
+<% if @promocions.blank? %>
+<% else %>
+<h2 align="center">Mostrando  Promociones</h2>
+<table>
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Descripcion
+        </th>
+        <th>
+            Fecha inicial
+        </th>
+        <th>
+            Fecha de finalizacion
+        </th>
+        <th>
+            Empresa
+        </th>
+    </tr>
+    <% @promocions.each do |promo| %>
+    <tr>
+        <td>
+            <%= promo.nombre %>
+        </td>
+        <td>
+            <%= promo.descripcion %>
+        </td>
+        <td>
+            <%= promo.fechaini %>
+        </td>
+        <td>
+            <%= promo.fechafin %>
+        </td>
+        <td>
+        	
+            <% @hola = Empresa.find(:all, :conditions => {:id =>"#{promo.id_empresa}"}) %>
+            <% @hola.each do |c| %>
+            <%= link_to "#{c.nombre}", :controller => "empresas", :action => "show", :id =>"#{promo.id_empresa}" %>
+            <% end %>
+        </td>
+    </tr>
+    <% end %>
+</table>
+<% end %>
+<br/>
+<% if @cupons.blank? %>
+<% else %>
+<h2 align="center">Mostrando Cupones</h2>
+<table>
+    <tr>
+     
+        <th>
+            Descripcion
+        </th>
+        <th>
+            Fecha de inicio
+        </th>
+        <th>
+            Fecha de finalizacion
+        </th>
+        <th>
+            Empresa
+        </th>
+    </tr>
+    <% @cupons.each do |cupone| %>
+    <tr>
+      
+        <td>
+            <%= cupone.descripcion %>
+        </td>
+        <td>
+            <%= cupone.fechaini %>
+        </td>
+        <td>
+            <%= cupone.fechafin %>
+        </td>
+        <td>
+            <% @hola = Empresa.find(:all, :conditions => {:id =>"#{cupone.id_empresa}"}) %>
+            <% @hola.each do |c| %>
+            <%= link_to "#{c.nombre}", :controller => "empresas", :action => "show", :id =>"#{cupone.id_empresa}" %>
+            <% end %>
+        </td>
+    </tr>
+    <% end %>
+</table>
+<% end %>

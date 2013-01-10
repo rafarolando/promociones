@@ -1,0 +1,47 @@
+<%= form_for(@cupon) do |f| %>
+  <% if @cupon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cupon.errors.count, "error") %> prohibited this cupon from being saved:</h2>
+
+      <ul>
+      <% @cupon.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %><br />
+    <%= f.text_field :descripcion, :required =>"true",:placeholder=>"Deuna descripcion de su cupon" ,:autofocus =>"true" %>
+  </div>
+  <div class="field">
+    <%= f.label :descuento %><br />
+    <%= f.text_field :descuento, :required =>"true",:placeholder=>"especifique el descuento" %>
+  </div>
+  <div class="field">
+    <%= f.label :cantidad %><br />
+    <%= f.number_field :cantidad, :required =>"true",:placeholder=>"especifique una cantidad" %>
+  </div>
+  <div class="field">
+    <%= f.label :fechaini %><br />
+    <%= f.date_select :fechaini, :required =>"true" %>
+  </div>
+  <div class="field">
+    <%= f.label :fechafin %><br />
+    <%= f.date_select :fechafin,:required =>"true" %>
+  </div>
+  <div class="field">
+    <%= f.label :id_supercategoria %><br />
+	<%= f.select :id_supercategoria, options_for_select(Supercategorium.all.collect	{ |c| [c.nombre, c.id] }.insert(0, '')), :required=>"true" %>
+ 
+  </div>
+  <div class="field">
+    <%= f.label :id_empresa %><br />
+	<%= f.select :id_empresa, options_for_select(Empresa.all.collect	{ |c| [c.nombre, c.id] }.insert(0, '')), :required=>"true" %>
+ 
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

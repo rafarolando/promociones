@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @cupon.descripcion %>
+</p>
+
+<p>
+  <b>Descuento:</b>
+  <%= @cupon.descuento %>
+</p>
+
+<p>
+  <b>Cantidad:</b>
+  <%= @cupon.cantidad %>
+</p>
+
+<p>
+  <b>Fechaini:</b>
+  <%= @cupon.fechaini %>
+</p>
+
+<p>
+  <b>Fechafin:</b>
+  <%= @cupon.fechafin %>
+</p>
+
+<p>
+  <b>Id empresa:</b>
+  <%= @cupon.id_empresa %>
+</p>
+
+
+<%= link_to 'Edit', edit_cupon_path(@cupon) %> |
+<%= link_to 'Back', cupons_path %>

@@ -1,0 +1,116 @@
+<%= form_for(@empresa) do |f| %>
+    <% if @empresa.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@empresa.errors.count, "error") %>prohibited this empresa from being saved:</h2>
+          <ul>
+            <% @empresa.errors.full_messages.each do |msg| %>
+                <li>
+                  <%= msg %>
+                </li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :Nombre_de_la_Empresa do %>
+          <% "Nombre de la Empresa <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+      <% end %>
+
+      <%= f.text_field :nombre, :required => "true", :placeholder => "nombre de empresa", :autofocus => "true" %>
+    </div>
+    <% if current_user %>
+        <% if current_user.tipo == "Admin" %>
+            <div class="field">
+              <%= f.label :estado %>
+              <br/>
+              <%= f.select :estado, options_for_select(Estado.all.collect { |c| [c.nombre, c.id] }.insert(0, ''), "1") %>
+              <div class="field">
+                <%= f.label :imagen %>
+
+                <%= f.file_field :imagen %>
+              </div>
+            </div>
+        <% end %>
+    <% else %>
+        <%= f.text_field :estado, :value => "0", :type => "hidden" %>
+        <div class="field">
+          <%= f.label :imagen do %>
+              <% "Imagen o Logo de su empresa <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+          <% end %>
+
+          <%= f.file_field :imagen, :required => "true" %>
+        </div>
+    <% end %>
+    dfffff<%= "#{@empresa.id_categoria}" %>sdfffff
+    <div class="field">
+      <%= f.label :categoria do %>
+          <% "Categoria <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+      <% end %>
+
+      <%= f.select :id_categoria, options_for_select(Categorium.all.collect { |c| [c.nombre, c.id] }.insert(0, ''), "#{@empresa.id_categoria}"), :required => "true", :name => "id_categoria" %>
+      <%= link_to "Agregar", :controller => "categoria", :action => "new" %>
+    </div>
+    <div class="field">
+      <%= f.label :Breve_Descripción_de_la_empresa do %>
+          <% "Breve Descripción de la empresa <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+      <% end %>
+
+      <%= f.text_area :descripcion, :cols => "33", :rows => "8", :required => "true", :placeholder => "Al menos debe contener 30 caracteres " %>
+
+
+    </div>
+    <div class="field">
+      <%= f.label :Número_de_Teléfono_del_negocio do %>
+          <% "Número de Teléfono del negocio <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+      <% end %>
+
+      <%= f.text_field :telefono, :required => "true" %>
+    </div>
+    <hr>Ubicacion de su empresa
+    <hr>
+    <div class="field">
+      <%= f.label :departamento do %>
+          <% "Departamento <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+      <% end %>
+
+      <%= f.select :id_departamento, options_for_select(Departamento.all.collect { |c| [c.nombre, c.id] }.insert(0, ''), "#{@empresa.id_departamento}"), :required => "true" %>
+    </div>
+    <div class="field">
+      <%= f.label :ciudad do %>
+          <% "Ciudad <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+      <% end %>
+      <%= f.select :id_ciudad, options_for_select(Ciudad.all.collect { |c| [c.nombre, c.id] }.insert(0, ''), "#{@empresa.id_ciudad}"), :required => "true" %>
+    </div>
+
+
+    <div class="field">
+      <%= f.label :direccion do %>
+          <% "Dirección <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+      <% end %>
+      <%= f.text_field :direccion, :required => "true" %>
+    </div>
+    <hr>Otros datos
+    <hr>
+    <div class="field">
+      <%= f.label :pagina_web %>
+      <br/>
+      <%= f.text_field :pagina %>
+    </div>
+    <div class="field">
+      <%= f.label :Horarios_de_Atención %>
+      <br/>
+      <%= f.text_area :horario, :cols => "33", :rows => "8" %>
+    </div>
+    <div class="field">
+      <br/>
+      <% $emailuser %>
+      <% @users = User.find(:all, :conditions => {:email => "#{$emailuser}"}) %>
+      <% @users.each do |h| %>
+          <% @hola = h.id %>
+      <% end %>
+      <%= f.text_field :id_usuario, :value => "#{@hola}", :readonly => "readonly", :type => "hidden" %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

@@ -1,0 +1,29 @@
+<%= form_for(@supercategorium) do |f| %>
+  <% if @supercategorium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@supercategorium.errors.count, "error") %> prohibited this supercategorium from being saved:</h2>
+
+      <ul>
+      <% @supercategorium.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre, :required=>"true", :autofocus=>"true",:placeholder=>"Nombre de supercategoria" %>
+  </div>
+  <div class="field">
+    <%= f.label :id_categoria %><br />
+    
+	<%= f.select :id_categoria, options_for_select(Categorium.all.collect	{ |c| [c.nombre, c.id] }.insert(0, '')) %>
+ 
+  </div>
+ 
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

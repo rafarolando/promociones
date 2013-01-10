@@ -1,0 +1,4 @@
+<h1>Contactos</h1>
+<%= render "construccion" %>
+<hr>
+<p>Disculpe las molestias...</p>

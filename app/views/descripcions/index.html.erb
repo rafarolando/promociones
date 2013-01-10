@@ -1,0 +1,31 @@
+<h1>Listing descripcions</h1>
+
+<table>
+  <tr>
+    <th>Descripcion</th>
+    <th>Direccion</th>
+    <th>Telefono</th>
+    <th>Email</th>
+    <th>Id empresa</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @descripcions.each do |descripcion| %>
+  <tr>
+    <td><%= descripcion.descripcion %></td>
+    <td><%= descripcion.direccion %></td>
+    <td><%= descripcion.telefono %></td>
+    <td><%= descripcion.email %></td>
+    <td><%= descripcion.id_empresa %></td>
+    <td><%= link_to 'Show', descripcion %></td><% if can? :update, @descripcions %>
+    <td><%= link_to 'Edit', edit_descripcion_path(descripcion) %></td><% end %> <% if can? :destroy, @descripcions %>
+    <td><%= link_to 'Destroy', descripcion, confirm: 'Are you sure?', method: :delete %></td><% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Descripcion', new_descripcion_path %>

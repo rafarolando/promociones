@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @ciudad.nombre %>
+</p>
+
+<% if can? :update, @ciudad %>
+ 
+<%= link_to 'Edit', edit_ciudad_path(@ciudad) %><% end %> |
+<%= link_to 'Back', ciudads_path %>

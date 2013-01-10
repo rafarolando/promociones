@@ -1,0 +1,30 @@
+<%	@categoria = Categorium.all %>
+<%	@supercategoria = Supercategorium.all %>
+<% @promocions = Promocion.all %>
+<% @cupons = Cupon.all %>
+
+
+<div class="dcjq-vertical-mega-menu">
+    <ul id="mega-1" class="menu">
+        <% @categoria.each do |categorium| %>
+        <li id="menu-item-1">
+            <%= link_to "#{categorium.nombre}" %>
+            <% @supercategoria.each do |supercategorium| %>
+			
+			
+            <% if ( Promocion.where(:id_supercategoria => "#{supercategorium.id}").count + Cupon.where(:id_supercategoria => "#{supercategorium.id}").count ) > 0 %>
+            <% if supercategorium.id_categoria == categorium.id %>
+            <ul id="has">
+                <li id="menu-item">
+                    <%= link_to "#{supercategorium.nombre}", :controller => "empresas", :action => "buscamenu", :id =>  supercategorium.id %>
+                </li>
+            </ul>
+            <% end %>
+            <% end %>
+            <% end %>
+        </li>
+        <% end %>
+    </ul>
+</div>
+
+

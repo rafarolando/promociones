@@ -1,0 +1,2 @@
+<%= image_tag "construccion.jpg", :size=>"750x550" %>
+<%= image_tag "logo1.png" %>

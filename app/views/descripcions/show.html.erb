@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @descripcion.descripcion %>
+</p>
+
+<p>
+  <b>Direccion:</b>
+  <%= @descripcion.direccion %>
+</p>
+
+<p>
+  <b>Telefono:</b>
+  <%= @descripcion.telefono %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @descripcion.email %>
+</p>
+
+<p>
+  <b>Id empresa:</b>
+  <%= @descripcion.id_empresa %>
+</p>
+
+
+<%= link_to 'Edit', edit_descripcion_path(@descripcion) %> |
+<%= link_to 'Back', descripcions_path %>

@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<table border="2">
+	<tr >
+		<td rowspan="5"></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	
+</table>
+
+<p>
+  <b>Nombre:</b>
+  <%= @empresa.nombre %>
+</p>
+
+<p>
+  <b>Estado:</b>
+  <%= @empresa.estado %>
+</p>
+
+<p>
+  <b>Imagen:</b>
+  <%= image_tag @empresa.imagen , :size=>"200x200" %>
+</p>
+
+<p>
+  <b>Id categoria:</b>
+  <%= @empresa.id_categoria %>
+</p>
+
+<p>
+  <b>Id usuario:</b>
+  <%= @empresa.id_usuario %>
+</p>
+
+
+<%= link_to 'Edit', edit_empresa_path(@empresa) %> |
+<%= link_to 'Back', empresas_path %>

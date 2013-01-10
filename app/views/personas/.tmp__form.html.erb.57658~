@@ -1,0 +1,41 @@
+<%= form_for(@persona) do |f| %>
+  <% if @persona.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@persona.errors.count, "error") %> prohibited this persona from being saved:</h2>
+
+      <ul>
+      <% @persona.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ci %><br />
+    <%= f.text_field :ci, :required=>"true", :placeholder=>"Su ci", :autofocus=>"true" %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre, :required=>"true", :placeholder=>"Su nombre" %>
+  </div>
+  <div class="field">
+    <%= f.label :apaterno %><br />
+    <%= f.text_field :apaterno, :required=>"true", :placeholder=>"Su apellido paterno" %>
+  </div>
+  <div class="field">
+    <%= f.label :amaterno %><br />
+    <%= f.text_field :amaterno, :required=>"true", :placeholder=>"Su apellido materno" %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br />
+    <%= f.text_field :telefono, :required=>"true", :placeholder=>"Telefono o celular" %>
+  </div>
+  <div class="field">
+    <%= f.label :id_usuario %><br />
+    <%= f.number_field :id_usuario %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

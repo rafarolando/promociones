@@ -1,0 +1,233 @@
+
+<% @promocions = Promocion.all %>
+<% @cupons = Cupon.all %>
+<% aux="" %>
+
+
+    <!--*********************Lista de ciudades***********************-->
+    <ul class="accordion" id="accordionMove">
+        <% if   (Promocion.count  ) > 0 %>
+        <% if   (Promocion.count + Cupon.count) > 0 %>
+        <% @promocions.each do |promo| %>
+        <% @hola = Empresa.find(:all, :conditions => {:id =>"#{promo.id_empresa}"}) %>
+        <% @hola.each do |c| %>
+        <% @departamentos = Departamento.find(:all, :conditions => {:id =>"#{c.id_departamento}"}) %>
+        <% @departamentos.each do |departamento| %>
+        <% aux+= departamento.id.to_s %>
+        <% end %>
+        <% end %>
+        <% end %>
+        <% end %>
+        <% if   (Cupon.count  ) > 0 %>
+        <% @cupons.each do |cupon| %>
+        <% @hola = Empresa.find(:all, :conditions => {:id =>"#{cupon.id_empresa}"}) %>
+        <% @hola.each do |c| %>
+        <% @departamentos = Departamento.find(:all, :conditions => {:id =>"#{c.id_departamento}"}) %>
+        <% @departamentos.each do |departamento| %>
+        <% aux+= departamento.id.to_s %>
+        <% end %>
+        <% end %>
+        <% end %>
+        <% end %>
+        <% end %>
+       
+        <% otro=aux.split(//) %>
+        <% otro=otro.sort %>
+        <% asd="" %>
+        <% (otro.length).times do |x| %>
+        <% asd+=otro[x] %>
+        <% end %>
+        <% gfd="" %>
+        <% gfd=asd.squeeze("1-9") %>
+        <% @aux = gfd.split(//) %>
+        <% @aux = %w{1 2 3 4 5 6 7 8 9}%>
+        <% (@aux.length.to_i).times do |a| %>
+        <% if  @aux[a]== "1" %>
+        <li class="bg6" id="contenido_6" value="1">
+            <div class="heading">
+                Beni
+            </div>
+            <div class="bgDescription">
+            </div>
+            <div class="description">
+                <h2>Beni</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                    ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                    reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla pariatur.
+                </p>
+                <a href="#">visitar &rarr;</a>
+            </div>
+        </li>
+        <% end %>
+        <% if  @aux[a]== "2" %>
+        <li class="bg9 bleft" id="contenido_9" value="1">
+            <div class="heading">
+                Cochabamba
+            </div>
+            <div class="bgDescription">
+            </div>
+            <div class="description">
+                <h2>Cochabamba</h2>
+                <p>
+                    Ciudad llena de mucha diversidad, punto donde el comercio encierra
+                    el centro de la economia de Bolivia, para toda persona que quiera
+                    encontrar lo que busca este es un buen lugar donde puede empezar.
+                    Esta ciudad esta integrada por diversas empresas y negocios que
+                    abarcan por todo este pais
+                    Animate a conocer esta lindia tirra.
+                </p>
+                <a href="#">visitar &rarr;</a>
+            </div>
+        </li>
+        <% end %>
+        <% if  @aux[a]== "3" %>
+        <li class="bg5" id="contenido_5" value="1">
+            <div class="heading">
+                La Paz
+            </div>
+            <div class="bgDescription">
+            </div>
+            <div class="description">
+                <h2>La Paz</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                    ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                    reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla pariatur.
+                </p>
+                <a href="#">visitar &rarr;</a>
+            </div>
+        </li>
+        <% end %>
+        <% if  @aux[a]== "4" %>
+        <li class="bg3" id="contenido_2" value="1">
+            <div class="heading">
+                Oruro
+            </div>
+            <div class="bgDescription">
+            </div>
+            <div class="description">
+                <h2>Oruro</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                    ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                    reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla pariatur.
+                </p>
+                <a href="#">visitar &rarr;</a>
+            </div>
+        </li>
+        <% end %>
+        <% if  @aux[a]== "5" %>
+        <li class="bg2" id="contenido_3" value="1">
+            <div class="heading">
+                Pando
+            </div>
+            <div class="bgDescription">
+            </div>
+            <div class="description">
+                <h2>Pando</h2>
+                <p>
+                    Bella ciudad de grandes bosques y rios, rica en cultura y amplia diversidad 
+                    de productos solo busca y encontraras todo lo que puedas imaginar de esta  
+                    grandiosa ciudad. 
+                    No te arrepentiras. 
+                </p>
+                <a href="#">visitar &rarr;</a>
+            </div>
+        </li>
+        <% end %>
+        <% if  @aux[a]== "6" %>
+        <li class="bg1" id="contenido_1" value="1">
+            <div class="heading">
+                Potosí
+            </div>
+            <div class="bgDescription">
+            </div>
+            <div class="description">
+                <h2>Potosí</h2>
+                <p>
+                    Ciudad Patrimonial y cultural de la humadidad,
+                    Lugar de mitos y leyendas que en su entrañas guarda su verdadera historia.
+                    Ven y conoce esta tierra, tierra de grandes reyes.
+                    Encontraras las mejores promociones y ofertas de todo loque te puedas imaginar.
+                </p>
+                <a href="#">visitar &rarr;</a>
+            </div>
+        </li>
+        <% end %>
+        <% if  @aux[a]== "7" %>
+        <li class="bg4" id="contenido_4" value="1">
+            <div class="heading">
+                Santa Cruz
+            </div>
+            <div class="bgDescription">
+            </div>
+            <div class="description">
+                <h2>Santa Cruz</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                    ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                    reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla pariatur.
+                </p>
+                <a href="#">visitar &rarr;</a>
+            </div>
+        </li>
+        <% end %>
+        <% if  @aux[a]== "8" %>
+        <li class="bg7" id="contenido_7" value="1">
+            <div class="heading">
+                Sucre
+            </div>
+            <div class="bgDescription">
+            </div>
+            <div class="description">
+                <h2>Sucre</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                    ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                    reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla pariatur.
+                </p>
+                <a href="#">visitar &rarr;</a>
+            </div>
+        </li>
+        <% end %>
+        <% if  @aux[a]== "9" %>
+        <li class="bg8" id="contenido_8" value="1">
+            <div class="heading">
+                Tarija
+            </div>
+            <div class="bgDescription">
+            </div>
+            <div class="description">
+                <h2>Tarija</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                    ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                    reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla pariatur.
+                </p>
+                <a href="#">visitar &rarr;</a>
+            </div>
+        </li>
+        <% end %>
+       
+        <% end %>
+    </ul>
+

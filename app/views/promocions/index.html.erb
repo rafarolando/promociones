@@ -1,0 +1,46 @@
+<h1>Promociones</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Descripcion</th>
+    <th>Fechaini</th>
+    <th>Fechafin</th>
+    <th>Id empresa</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+  <% if current_user %>
+    <% if current_user.tipo == "empresa" %>
+    <% van=current_user.id %>
+    <% @empresas = Empresa.find(:all, :conditions => {:id_usuario =>" #{van}"}) %>
+	<% empid="null"%>
+    <% @empresas.each do |empresa| %>
+    <% empid=empresa.id %>
+    <% end %>
+    <% @promocions = Promocion.find(:all, :conditions => {:id_empresa =>" #{empid}"}) %>
+    <% end %>
+    <% end %>
+
+
+
+<% @promocions.each do |promocion| %>
+  <tr>
+    <td><%= promocion.nombre %></td>
+    <td><%= promocion.descripcion %></td>
+    <td><%= promocion.fechaini %></td>
+    <td><%= promocion.fechafin %></td>
+    <td><%= promocion.id_empresa %></td>
+    <td><%= link_to 'Ver', promocion %></td><% if can? :update, @promocions %>
+    <td><%= link_to 'Editar', edit_promocion_path(promocion) %></td><% end %> <% if can? :destroy, @promocions %>
+    <td><%= link_to 'Eliminar', promocion, confirm: 'Are you sure?', method: :delete %></td><% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Crear Nuevo', new_promocion_path %>

@@ -1,0 +1,33 @@
+<h1>Listing empresas</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Estado</th>
+    <th>Imagen</th>
+    <th>Id categoria</th>
+    <th>Id usuario</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+ 
+<% @empresas.each do |empresa| %>
+  <tr>
+    <td><%= empresa.nombre %></td>
+    <td><%= empresa.estado %></td>
+    <td><%= empresa.imagen %></td>
+    <td><%= empresa.id_categoria %></td>
+    <td><%= empresa.id_usuario %></td>
+    <td><%= link_to 'Show', empresa %></td> <% if can? :update, @empresas %>
+    <td><%= link_to 'Activar', edit_empresa_path(empresa) %></td><% end %> <% if can? :destroy, @empresas %>
+    <td><%= link_to 'Destroy', empresa, confirm: 'Are you sure?', method: :delete %></td><% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Empresa', new_empresa_path %>

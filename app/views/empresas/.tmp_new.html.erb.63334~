@@ -1,0 +1,7 @@
+<h1>Crear  su empresa</h1>
+
+
+<%= render "form" %>
+
+
+<%= link_to 'Atras', empresas_path %>

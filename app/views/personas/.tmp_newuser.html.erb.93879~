@@ -1,0 +1,72 @@
+<div id="caja1">
+  <div id="titulo" align="center">
+   
+  </div><h1> Crear su cuenta como usuario</h1><br>
+
+	Le ofrece acceso a todos los servicios del sistema y a otros sitios donde aparezca
+  <br />
+	Toda la información es necesaria.
+  <hr  width=90% align="center" color="b3dced"  />
+  <p></p>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %> <p></p>
+
+  <%= form_for @user, :url => { :action => "createuser" }   do |f| %>
+    <% if @user.errors.any? %>
+      <div class="error_messages">
+         <h2><%= image_tag "error.png" , :size=>"20x20" %> Se encontró los siguientes errores. </h2>
+        <ul>
+          <% for message in @user.errors.full_messages %>
+            <li>
+              <%= message.html_safe %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+   
+      <div class="field">
+        <%= f.label :email do %>
+        <% "Correo electronico <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+		
+		
+         <%= f.text_field :email, :placeholder => "ejemplo@hotmail.com", :required => "true", :type => "email", :autofocus => "true"   %> 
+      </div>
+      
+     
+      <div class="field">
+        <%= f.label :password  do %>
+        <% "Contraseña <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+		
+		 <%= f.password_field :password %> 
+      </div>
+     
+      <div class="field">
+         <%= f.label :password_confirmation do %>
+        <% "Vuelve a escribir la contraseña <span class='form-required' title='Este campo es obligatorio.'>*</span>".html_safe %>
+        <% end %>
+ 
+  <%= f.password_field :password_confirmation %>
+      </div>
+     
+	 
+      <div class="field">
+        
+		 <%= f.text_field :tipo , :value=> "empresa", :type=>"hidden" %>
+      </div>
+      
+   
+    <hr   />
+    Hacer clic en <strong>Continuar</strong> significa que acepta el Contrato de servicios de <a href="/empresas/acuerdo">ahiteveo</a> y la declaración de privacidad.
+    <div class="actions">
+      <%= f.submit "Continuar" %>
+    </div>
+  <% end %>
+</div>
+
+<br />
+<br />
+<br />

@@ -1,0 +1,29 @@
+ 
+
+<h1> Empresas</h1>
+<hr>
+<% @empresas.each do |empresa| %>
+<div class="pin empresas">
+    <div class="PinHolder">
+        <div class="actions">
+        	
+            <% if ( Promocion.where(:id_empresa => "#{empresa.id}").count ) > 0 %>
+            <a class="Button Button11 WhiteButton ContrastButton repin_link" href="/empresas/buscapromo?id=<%= empresa.id %>"  >Promociones</a>
+            <% end %>
+			
+			<% if (Cupon.where(:id_empresa => "#{empresa.id}").count ) > 0 %>
+            <a class="Button Button11 WhiteButton ContrastButton repin_link" href="/empresas/buscacupo?id=<%= empresa.id %>" >Cupones</a>
+            <% end %>
+			 <a class="Button Button11 WhiteButton ContrastButton repin_link" <%= "href=/empresas/#{ empresa.id}" %>>Informacion</a>
+          
+        </div>
+        <article class="PinImage">
+        	<%= image_tag empresa.imagen, :class=>"PinImageImg", :width=>"100px", :height=>"100px" %>
+            <h2><%= empresa.nombre %></h2>
+            <p>
+                <%= empresa.descripcion %>
+            </p>
+        </article>
+    </div>
+</div>
+<% end %>

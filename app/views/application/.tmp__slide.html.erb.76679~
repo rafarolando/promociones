@@ -1,0 +1,21 @@
+<% slidesclases = %w{ cube cubeRandom block cubeStop cubeHide cubeSize horizontal } %>
+<% rand_slides= rand(slidesclases.length) %>
+<% slidesclases[rand_slides] %>
+<% @sliders = Slider.all %>
+<div class="border_box">
+    <div class="box_skitter box_skitter_large">
+        <ul>
+            <% @sliders.each do |slider| %>
+            <% rand_slides= rand(slidesclases.length) %>
+            <li>
+                <a href=<%="'##{slidesclases[rand_slides]}'" %>><img src=<%="'#{slider.image}'"%><%= "class='#{slidesclases[rand_slides]}'" %>/></a>
+                <div class="label_text">
+                    <p>
+                        <%= slider.id_empresa%> Beta
+                    </p>
+                </div>
+            </li>
+            <% end %>
+        </ul>
+    </div>
+</div>
