@@ -61,6 +61,10 @@
    { :nombre => 'Inactivo' },
    { :nombre => 'Activo' }
    ])
+
+ User.create(email: 'cliente@cliente.com', password: 'cliente123', password_confirmation: 'cliente123', tipo: "cliente")
+ User.create(email: 'admin@admin.com', password: 'admin123', password_confirmation: 'admin123', tipo: "Admin")
+ User.create(email: 'empresa@empresa.com', password: 'empresa123', password_confirmation: 'empresa123', tipo: "empresa")
    
 
 

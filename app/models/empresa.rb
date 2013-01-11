@@ -1,6 +1,7 @@
 class Empresa < ActiveRecord::Base
   attr_accessible :estado, :id_categoria, :id_usuario, :imagen, :nombre, :id_departamento, :id_ciudad, :direccion, :pagina, :telefono, :descripcion, :horario
-  
+
+  has_and_belongs_to_many Promocion
   
   
   
