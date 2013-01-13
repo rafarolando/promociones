@@ -2,7 +2,7 @@ class Promocion < ActiveRecord::Base
   attr_accessible :descripcion, :fechafin, :fechaini, :id_empresa, :nombre , :id_supercategoria
 
 
-  has_and_belongs_to_many Empresa
+
 
   validates_presence_of :descripcion , :message => "falta"
   validates_presence_of :fechaini , :message => "falta"

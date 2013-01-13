@@ -24,7 +24,7 @@
   </script>
 </head>
 <!--inicio de body-->
-<body class="<%= params[:controller] %>" >
+<body class="<%= params[:controller] %>">
 <section id="todo">
   <header>
     <div id="logo">
@@ -35,6 +35,7 @@
     <div id="login">
       <% if current_user %>
           Sesión iniciada como: <%= current_user.email %>.<%= link_to "Cerrar sesión", logout_path %>
+          <br>Tipo:<%= current_user.tipo %>
       <% else %>
           <%= render "new" %>
       <% end %>
@@ -83,11 +84,12 @@
       <!--fin menu 2-->
     </section>
   </section>
+</section>
 
-  <br/>
-  <br/>
-  <br/>
-  <br/>
+<br/>
+<br/>
+<br/>
+<br/>
 </body>
 
 
