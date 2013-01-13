@@ -27,6 +27,9 @@ gem "bcrypt-ruby", :require => "bcrypt"
 gem 'carrierwave'
 #administraciond e roles
 gem "cancan"
+#generacion de qr
+gem 'rqrcode'
+gem 'rqrcode_png'
 #reportes
 #gem "prawn"
 gem 'prawn', '1.0.0.rc1'

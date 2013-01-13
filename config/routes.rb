@@ -1,5 +1,7 @@
 Promociones10::Application.routes.draw do
   
+  resources :contacts
+
   match '/auth/:provider/callback' => 'authentications#create'
   
   

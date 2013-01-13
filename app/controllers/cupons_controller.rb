@@ -11,15 +11,53 @@ class CuponsController < ApplicationController
 
         pdf = Prawn::Document.new(:page_size => "LETTER", :page_layout => :portrait)
 
-        #pdf.image "public/images/bolivia.gif", :width => 200
+        pdf.image "public/images/fcupon.png", :width => 200
 
-        pdf.text "Cupon "
+        pdf.text " "
         pdf.stroke_horizontal_rule
         pdf.move_down 20
 
-        data = [["NOMBRE", "DETALLE", "PRECIO", "Imagen", "QR"]]
+        #data = [["NOMBRE", "DETALLE", "PRECIO", "Imagen", "QR"]]
         @cupons.each do |cupon|
-          data += [["sd", "asd", "asd", "asd", "prueba" ]]
+          #data += [["sd", "asd", "asd", "asd", "prueba" ]]
+          @empresa = Empresa.find(:all, :conditions => {:id => cupon.id_empresa})
+
+          @empresa.each do |em|
+            pdf.image "public/#{em.imagen}", :width => 100,  :at => [200, 720]
+
+            @qr = RQRCode::QRCode.new("#{em.id}", :size => 4, :level => :h)
+            png = @qr.to_img
+            png.resize(190, 190).save("#{Rails.root}/public/uploads/empresa/imagen/#{em.id}/#{em.id}.png")
+            pdf.image "#{Rails.root}/public/uploads/empresa/imagen/#{em.id}/#{em.id}.png", :width => 60,  :at => [180, 700]
+            pdf.text_box "Direccion:"+em.direccion+"
+            Horarios de atencion:"+em.horario,
+                         :at => [80, 680],
+                         :height => 100,
+                         :width => 100, :size => 9
+          end
+
+
+          pdf.text_box ""+cupon.descripcion,
+                       :at => [80, 710],
+                       :height => 100,
+                       :width => 100, :size => 9
+          pdf.text_box "Valido de:"+cupon.fechaini.to_s+"
+           hasta "+cupon.fechafin.to_s+"
+
+
+
+
+
+          www.ahiteveo.com",
+                       :at => [80, 700],
+                       :height => 100,
+                       :width => 100, :size => 9
+          pdf.text_box ""+cupon.descuento+"%",
+                       :at => [20, 700],
+                       :height => 100,
+                       :width => 200, :size => 20
+
+
 
         end
 
@@ -39,7 +77,7 @@ class CuponsController < ApplicationController
         #:cell_style => { :inline_format => true }
 
 
-        pdf.table(data, :header => true, :column_widths => [70, 180, 60, 110, 110], :cell_style => {:border_width => 0})
+        #pdf.table(data, :header => true, :column_widths => [70, 180, 60, 110, 110], :cell_style => {:border_width => 0})
         pdf.move_down 20
         pdf.text "El uso de este sitio web implica la aceptacion de los Terminos y Condiciones y de las Politicas de Privacidad de ahiteveo S.A.
 Las fotos son a modo ilustrativo. La venta de cualquiera de los productos publicados esta sujeta a la verificacion de stock. Los precios online para los productos presentados/publicados en www.ahiteveo.com.bo y/o www.ahiteveo.com son validos exclusivamente para la compra via internet en las paginas antes mencionadas.

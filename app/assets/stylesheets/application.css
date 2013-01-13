@@ -28,7 +28,7 @@
 }
 
 form label {
-    display: block;
+   /* display: block; */
     margin-bottom: 2px;
 }
 
@@ -119,3 +119,22 @@ form .field, form .actions {
  #Empresas H1{text-align:left;color:#2a3d4b;font-size:13pt;margin:50px}
 #Empresas H2{font-size:12pt;color:#0589c2;border-left:5px solid #0589c2;border-bottom:1px dashed #0589c2;padding-left:5px;margin-left:75px}
 #Empresas P{margin:30px 30px 30px 110px;text-align:justify;line-height:17px}
+
+.field label, input ,textarea   {
+    display:inline-table;
+    width: 200px;
+
+
+}
+.field label{
+    text-align: right;
+}
+form input:required:valid, form textarea:required:valid {
+    box-shadow: 0 0 5px #5cd053;
+    border-color: #28921f;
+}
+
+form input:focus:invalid, form textarea:focus:invalid {
+    box-shadow: 0 0 5px #d45252;
+    border-color: #b03535
+}
