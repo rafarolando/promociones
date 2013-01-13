@@ -32,6 +32,10 @@ class Ability
       can :read, Empresa
 
       can :buscar, Empresa
+      can :buscapromo, Empresa
+      can :buscacupo, Empresa
+      can :buscamenu, Empresa
+
       can :read, Persona
       can :create, Persona
       can :update, Persona

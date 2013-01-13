@@ -55,7 +55,7 @@ class DepartamentosController < ApplicationController
 
     respond_to do |format|
       if @departamento.save
-        format.html { redirect_to @departamento, notice: 'Departamento was successfully created.' }
+        format.html { redirect_to @departamento, notice: 'Departamento creado.' }
         format.json { render json: @departamento, status: :created, location: @departamento }
       else
         format.html { render action: "new" }
@@ -71,7 +71,7 @@ class DepartamentosController < ApplicationController
 
     respond_to do |format|
       if @departamento.update_attributes(params[:departamento])
-        format.html { redirect_to @departamento, notice: 'Departamento was successfully updated.' }
+        format.html { redirect_to @departamento, notice: 'Departamento actualizado.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

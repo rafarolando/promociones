@@ -45,7 +45,7 @@ class SupercategoriaController < ApplicationController
 
     respond_to do |format|
       if @supercategorium.save
-        format.html { redirect_to @supercategorium, notice: 'Supercategorium was successfully created.' }
+        format.html { redirect_to @supercategorium, notice: 'Supercategoria creada.' }
         format.json { render json: @supercategorium, status: :created, location: @supercategorium }
       else
         format.html { render action: "new" }
@@ -61,7 +61,7 @@ class SupercategoriaController < ApplicationController
 
     respond_to do |format|
       if @supercategorium.update_attributes(params[:supercategorium])
-        format.html { redirect_to @supercategorium, notice: 'Supercategorium was successfully updated.' }
+        format.html { redirect_to @supercategorium, notice: 'Supercategoria actualizada.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

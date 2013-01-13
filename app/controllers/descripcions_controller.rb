@@ -45,7 +45,7 @@ class DescripcionsController < ApplicationController
 
     respond_to do |format|
       if @descripcion.save
-        format.html { redirect_to @descripcion, notice: 'Descripcion was successfully created.' }
+        format.html { redirect_to @descripcion, notice: 'Descripcion creada.' }
         format.json { render json: @descripcion, status: :created, location: @descripcion }
       else
         format.html { render action: "new" }
@@ -61,7 +61,7 @@ class DescripcionsController < ApplicationController
 
     respond_to do |format|
       if @descripcion.update_attributes(params[:descripcion])
-        format.html { redirect_to @descripcion, notice: 'Descripcion was successfully updated.' }
+        format.html { redirect_to @descripcion, notice: 'Descripcion actualizada.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

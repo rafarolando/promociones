@@ -45,7 +45,7 @@ class SlidersController < ApplicationController
 
     respond_to do |format|
       if @slider.save
-        format.html { redirect_to @slider, notice: 'Slider was successfully created.' }
+        format.html { redirect_to @slider, notice: 'Slider creado.' }
         format.json { render json: @slider, status: :created, location: @slider }
       else
         format.html { render action: "new" }
@@ -61,7 +61,7 @@ class SlidersController < ApplicationController
 
     respond_to do |format|
       if @slider.update_attributes(params[:slider])
-        format.html { redirect_to @slider, notice: 'Slider was successfully updated.' }
+        format.html { redirect_to @slider, notice: 'Slider actualizado.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

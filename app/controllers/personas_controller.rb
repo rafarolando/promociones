@@ -60,7 +60,7 @@ class PersonasController < ApplicationController
 
     respond_to do |format|
       if @persona.save
-        format.html { redirect_to @persona, notice: 'Persona was successfully created.' }
+        format.html { redirect_to @persona, notice: 'Persona creada.' }
         format.json { render json: @persona, status: :created, location: @persona }
       else
         format.html { render action: "new" }
@@ -76,7 +76,7 @@ class PersonasController < ApplicationController
 
     respond_to do |format|
       if @persona.update_attributes(params[:persona])
-        format.html { redirect_to @persona, notice: 'Persona was successfully updated.' }
+        format.html { redirect_to @persona, notice: 'Datos de persona actualizada.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

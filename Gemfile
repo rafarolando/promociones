@@ -27,6 +27,9 @@ gem "bcrypt-ruby", :require => "bcrypt"
 gem 'carrierwave'
 #administraciond e roles
 gem "cancan"
+#reportes
+#gem "prawn"
+gem 'prawn', '1.0.0.rc1'
 
 #autentificacion de usuarios
 gem 'omniauth'

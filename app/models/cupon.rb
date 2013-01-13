@@ -10,5 +10,8 @@ class Cupon < ActiveRecord::Base
   
   validates_presence_of :id_empresa , :message => "error fatal"
   validates_presence_of :id_supercategoria , :message => "seleccione"
+
+  validates_numericality_of :descuento , :message => "No es numero"
+  validates_numericality_of :cantidad, :message => "No es numero"
   
 end

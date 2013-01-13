@@ -1,14 +1,19 @@
 <%= form_for(@cupon) do |f| %>
   <% if @cupon.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@cupon.errors.count, "error") %> prohibited this cupon from being saved:</h2>
+    <div class="error_messages">
+      <h2><%= image_tag "error.png" , :size=>"20x20" %> Se encontró los siguientes errores. </h2>
 
       <ul>
-      <% @cupon.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% for message in @cupon.errors.full_messages %>
+            <li>
+              <%= message.html_safe %>
+            </li>
+        <% end %>
       </ul>
     </div>
+
+
+
   <% end %>
 
   <div class="field">
