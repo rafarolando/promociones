@@ -4,8 +4,16 @@
       <%= link_to "Inicio", :controller => "principal", :action => "index" %>
     </li>
     <li>
-      <%= link_to "Acerca de", :controller => "acercade", :action => "index" %>
+      <%= link_to "Categorias  ", :controller => "empresas", :action => "buscar" %>
     </li>
+    <li>
+      <%= link_to "Cupones en tu ciudad  ", :controller => "empresas", :action => "buscar" %>
+    </li>
+    <!--
+    <li>
+      < link_to "Acerca de", :controller => "acercade", :action => "index" %>
+    </li>
+    -->
 
     <% if current_user %>
         <% if current_user.tipo == "cliente" %>
@@ -13,9 +21,7 @@
             <li>
               <%= link_to "Datos", :controller => "personas", :action => "index" %>
             </li>
-            <li>
-              <%= link_to "Buscar  ", :controller => "empresas", :action => "buscar" %>
-            </li>
+
         <% elsif current_user.tipo == "empresa" %>
             <li>
               <%= link_to "Promocionar", :controller => "promocions", :action => "index" %>
@@ -38,7 +44,7 @@
 
     <% end %>
     <li>
-      <%= link_to "Contactanos", :controller => "contacts", :action => "new" %>
+      <%= link_to "Contacto", :controller => "contacts", :action => "new" %>
     </li>
 
   </ul>
