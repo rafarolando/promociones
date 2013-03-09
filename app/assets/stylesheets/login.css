@@ -1,8 +1,8 @@
-
-
 /*-------LOGIN STARTS HERE -------*/
 #login{
-	
+    font-size: 15px;
+    color: #4d4d4d;
+
 }
 /* Login Container (default to float:right) */
 #loginContainer {
@@ -23,7 +23,6 @@
     z-index:30;
     cursor:pointer;
 }
-
 /* Login Button Text */
 #loginButton span {
     color:#445058; 
@@ -92,15 +91,6 @@ fieldset#body {
     margin:0;
 }
 
-#loginForm #checkbox {
-    width:auto;
-    margin:1px 9px 0 0;
-    float:left;
-    padding:0;
-    border:0;
-    *margin:-3px 9px 0 0; /* IE7 Fix */
-}
-
 
 #body label {
     color:#3a454d;
@@ -128,6 +118,13 @@ fieldset#body {
     -webkit-box-shadow:inset 0px 1px 3px #bbb;
     -moz-box-shadow:inset 0px 1px 3px #bbb;
     font-size:12px;
+}
+#loginForm #checkbox {
+    width:10%;
+    margin:1px 9px 0 0;
+    float:left;
+    padding:0;
+    border:20px solid #000000;
 }
 
 /* Sign In Button */
@@ -159,7 +156,6 @@ fieldset#body {
     text-shadow:1px 1px #fff;
     font-size:12px;
 }
-
 input:focus {
     outline:none;
 }

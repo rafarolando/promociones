@@ -11,7 +11,7 @@
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, :id => "flash_#{name}" %>
   <% end %> <p></p>
-
+  <div class="global">
   <%= form_for @user, :url => { :action => "createpersona" }   do |f| %>
     <% if @user.errors.any? %>
       <div class="error_messages">
@@ -65,6 +65,7 @@
       <%= f.submit "Continuar" %>
     </div>
   <% end %>
+ </div>
 </div>
 
 <br />

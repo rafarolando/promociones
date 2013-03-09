@@ -3,30 +3,29 @@
 <% slidesclases[rand_slides] %>
 <% @sliders = Slider.all %>
 <div class="border_box">
-  <div class="box_skitter box_skitter_large">
-    <ul>
-      <% @sliders.each do |slider| %>
-          <% rand_slides= rand(slidesclases.length) %>
-          <li>
-            <% @empresas = Empresa.find(:all, :conditions => {:id => " #{slider.id_empresa}"}) %>
-            <% slider.id_empresa %>
-            <% @empresas.each do |empresa| %>
-                <% @hola=empresa.id %>
+    <div class="box_skitter box_skitter_large">
+        <ul>
+            <% @sliders.each do |slider| %>
+            <% rand_slides= rand(slidesclases.length) %>
+            <li> 
+			<% @empresas = Empresa.find(:all, :conditions => {:id =>" #{slider.id_empresa}"}) %>
+                        <% slider.id_empresa %>
+                        <% @empresas.each do |empresa| %>
+                        <% @hola=empresa.id %>
+                        <% end %>
+						
+                <a href=<%="/empresas/#{@hola}" %>><img src=<%="'#{slider.image}'" %><%= "class='#{slidesclases[rand_slides]}'" %>/></a>
+                <div class="label_text">
+                    <p>
+                        <% @empresas = Empresa.find(:all, :conditions => {:id =>" #{slider.id_empresa}"}) %>
+                        <% slider.id_empresa %>
+                        <% @empresas.each do |empresa| %>
+                        <%=  empresa.nombre %>
+                        <% end %>
+                    </p>
+                </div>
+            </li>
             <% end %>
-
-            <a href=<%= "/empresas/#{@hola}" %>><img src=<%= "'#{slider.image}'" %><%= "class='#{slidesclases[rand_slides]}'" %>/></a>
-
-            <div class="label_text">
-              <p>
-                <% @empresas = Empresa.find(:all, :conditions => {:id => " #{slider.id_empresa}"}) %>
-                <% slider.id_empresa %>
-                <% @empresas.each do |empresa| %>
-                    <%= empresa.nombre %>
-                <% end %>
-              </p>
-            </div>
-          </li>
-      <% end %>
-    </ul>
-  </div>
+        </ul>
+    </div>
 </div>

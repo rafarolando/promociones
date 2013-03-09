@@ -1,51 +1,62 @@
 <nav id="menu1">
-  <ul>
-    <li>
-      <%= link_to "Inicio", :controller => "principal", :action => "index" %>
-    </li>
-    <li>
-      <%= link_to "Categorias  ", :controller => "empresas", :action => "buscar" %>
-    </li>
-    <li>
-      <%= link_to "Cupones en tu ciudad  ", :controller => "empresas", :action => "buscar" %>
-    </li>
-    <!--
-    <li>
-      < link_to "Acerca de", :controller => "acercade", :action => "index" %>
-    </li>
-    -->
+    <ul>
+        	<li>
+            <%= link_to "Inicio", :controller => "principal", :action => "index" %>
+        </li>
+        <li>
+            <%= link_to "Buscar  ", :controller => "empresas", :action => "buscar" %>
+        </li>
+		
+		<% if current_user %>
+		<% if current_user.tipo == "cliente" %>
+        <li>
+            <%= link_to "Empresas", :controller => "empresas", :action => "index" %>
 
-    <% if current_user %>
-        <% if current_user.tipo == "cliente" %>
+        </li>
+		<li>
+            <%= link_to "Datos", :controller => "personas", :action => "index" %>
+			 
+        </li>
+		
+		<% else %>
+	
+		<% end %>
+		 <% end %>
+		 
+        <li>
+            <%= link_to "Contactanos", :controller => "contactos", :action => "index" %>
+        </li>
+		
+        <li>
+            <%= link_to "Publicite", :controller => "empresas", :action => "presentacion" %>
+        </li>
+      <li>
+        <%= link_to "Acerca de", :controller => "acercade", :action => "index" %>
+      </li>
 
-            <li>
-              <%= link_to "Datos", :controller => "personas", :action => "index" %>
-            </li>
+      <% if current_user %>
+		<% if current_user.tipo == "empresa" %>
+        <li>
+            <%= link_to "Promocionar", :controller => "promocions", :action => "index" , :title=>"promocione su empresa" %>
 
-        <% elsif current_user.tipo == "empresa" %>
-            <li>
-              <%= link_to "Promocionar", :controller => "promocions", :action => "index" %>
-            </li>
-            <li>
-              <%= link_to "Crear Cupones", :controller => "cupons", :action => "index" %>
-            </li>
-        <% elsif current_user.tipo == "Admin" %>
-            <li>
-              <%= link_to "Empresas", :controller => "empresas", :action => "index" %>
-            </li>
-            <li>
-              <%= link_to "Configuración", :controller => "configuraciones", :action => "index" %>
-            </li>
+        </li>
+		<li>
+          <%= link_to "Crear Cupones", :controller => "cupons", :action => "index" %>
+	
+        </li>
+		<% end %>
+		 <% end %>
+		 
+		
+        <% if current_user %>
+        <% if current_user.tipo == "Admin" %>
+		<li>
+            <%= link_to "Empresas", :controller => "empresas", :action => "index" %>
+        </li>
+        <li>
+            <%= link_to "Configuración", :controller => "configuraciones", :action => "index" %>
+        </li>
         <% end %>
-        <% else %>
-            <li>
-              <%= link_to "Publicite", :controller => "empresas", :action => "presentacion" %>
-            </li>
-
-    <% end %>
-    <li>
-      <%= link_to "Contacto", :controller => "contacts", :action => "new" %>
-    </li>
-
-  </ul>
+        <% end %>
+    </ul>
 </nav>

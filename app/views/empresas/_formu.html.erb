@@ -1,3 +1,4 @@
+<div class="global">
 <%= form_for(@empresa) do |f| %>
   <% if @empresa.errors.any? %>
     <div id="error_explanation">
@@ -42,7 +43,7 @@
 	<%= f.select :id_ciudad, options_for_select(Ciudad.all.collect	{ |c| [c.nombre, c.id] }.insert(0, '')), :required=>"true" %>
   </div>
    <hr>
-  usario
+  usuario
   <hr>
   
   <div class="field">
@@ -53,3 +54,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div>

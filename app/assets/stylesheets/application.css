@@ -28,7 +28,7 @@
 }
 
 form label {
-   /* display: block; */
+    display: block;
     margin-bottom: 2px;
 }
 
@@ -102,39 +102,30 @@ form .field, form .actions {
 /*fin de botones*/
  #formlogin{
  	width:450px;
-
  }
 
 .form-required{
 	color:red;
 	
-} 
- 
+}
+#titu{
+    border: 1px dashed #4d4d4d;
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    box-shadow: 5px 5px 10px 1px #4d4d4d;
+}
+#titu p{
+    font-size: 30px;
+    color: red;
+}
 
- #Empresas div.cabecera{border:1px dashed #0589c2;background:#eaeef6;width:600px;margin-left:auto;margin-right:auto;margin-top:20px}
+
+ #Empresas div.cabecera{border:1px dashed #4d4d4d;background:#f0f0f0;width:600px;margin-left:auto;margin-right:auto;margin-top:20px}
  #Empresas div.cabecera P{margin:25px;text-align:justify;line-height:25px}
  
  
  #Empresas{font-size:10pt;margin-bottom:20px}
- #Empresas H1{text-align:left;color:#2a3d4b;font-size:13pt;margin:50px}
-#Empresas H2{font-size:12pt;color:#0589c2;border-left:5px solid #0589c2;border-bottom:1px dashed #0589c2;padding-left:5px;margin-left:75px}
+ #Empresas H1{text-align:left;color:#4d4d4d;font-size:13pt;margin:50px}
+#Empresas H2{font-size:12pt;color:#4d4d4d;border-left:5px solid #4d4d4d;border-bottom:1px dashed #4d4d4d;padding-left:5px;margin-left:75px}
 #Empresas P{margin:30px 30px 30px 110px;text-align:justify;line-height:17px}
-
-.field label, input ,textarea   {
-    display:inline-table;
-    width: 200px;
-
-
-}
-.field label{
-    text-align: right;
-}
-form input:required:valid, form textarea:required:valid {
-    box-shadow: 0 0 5px #5cd053;
-    border-color: #28921f;
-}
-
-form input:focus:invalid, form textarea:focus:invalid {
-    box-shadow: 0 0 5px #d45252;
-    border-color: #b03535
-}

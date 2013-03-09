@@ -1,0 +1,27 @@
+.global{
+    padding-left: 30px;
+    width: 40%;
+    box-shadow:  0 -2px 15px #4d4d4d;
+    margin: 0 auto;
+    border-radius: 0 0 8px 8px;
+    padding-bottom: 5px;
+}
+.global form input[type = text], form input[type = password], form input[type = email], form input[type = url], form input[type = tel],form input[type = search], form textarea, form select{
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+    border: 2px solid #4d4d4d;
+    border-radius: 20%;
+}
+.global label{
+    font-size: 15px;
+    padding-top:15px ;
+}
+.global input:focus{
+    font-size: 15px;
+    border: 2px solid #0D0000;
+}

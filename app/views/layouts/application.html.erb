@@ -2,7 +2,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <html>
 <head>
-  <title>Promociones10</title>
+  <title>Ahi Te Veo</title>
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -24,18 +24,20 @@
   </script>
 </head>
 <!--inicio de body-->
-<body class="<%= params[:controller] %>">
+<body class="<%= params[:controller] %>" >
 <section id="todo">
   <header>
     <div id="logo">
-      <%= link_to image_tag("alternativa12.png", :widht => "100", :height => "100"), "/principal/index" %>
+      <%= link_to image_tag("logo.png", :widht => "100", :height => "100"), "/principal/index" %>
 
+    </div>
+    <div id="slogan">
+      <p> TU MEJOR OPCION PARA PROMOCIONAR TUS PRODUCTOS </p>
     </div>
     <!-- inicio de login-->
     <div id="login">
       <% if current_user %>
           Sesión iniciada como: <%= current_user.email %>.<%= link_to "Cerrar sesión", logout_path %>
-          <br>Tipo:<%= current_user.tipo %>
       <% else %>
           <%= render "new" %>
       <% end %>
@@ -51,8 +53,7 @@
       <center>
         <%= render "slide" %>
       </center>
-
-<% end %>
+  <% end %>
 
   <!--fin  de slides-->
   <section id="conten2">
@@ -85,32 +86,22 @@
       <!--fin menu 2-->
     </section>
   </section>
-</section>
 
-<br/>
-<br/>
-<br/>
-<br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
 </body>
 
 
 <!--fin de body--><!--inicio de footer-->
 <footer>
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-      fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-
-  <div class="fb-like" data-href="http://www.40daysintheword.com/" data-send="true" data-width="350" data-show-faces="false" data-font="lucida grande"></div>
-  <iframe src="http://www.facebook.com/plugins/likebox.php?href=http://www.facebook.com/issce.uatf&amp;width=230&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;header=yes&amp;height=310" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:230px; height:310px; margin:10px 0 0 6px;" allowTransparency="true"></iframe>
-
-  <center>
-    <span class="copyright">Copyright &copy; 2012 <a href="#">iRomero</a>,<a href="#">rMendez</a>,<a href="#">rTapia</a>,<a href="#">rFernadez</a>,<a href="#">aDaza</a>,All Rights Reserved</span>
+    <span class="copyright">Copyright &copy; 2012 <div id="logo">
+      <%= link_to image_tag("logosie1.png", :widht => "50", :height => "50"), "http://www.sie.com" %>
+    </div>
+    All Rights Reserved</span>
     <br>
+    <div id="men">
     <a href="/contact/">Contactos</a>
     | <a href="/terms.html">terminos de uso</a>
     | <a href="/privacy.html">Privacidad</a>
@@ -122,7 +113,7 @@
     | <a href="/tos">Condiciones</a>
     | <a href="/privacy">Privacidad </a>
     | <a href="//business.twitter.com/es/advertise/start">Publicidad</a>
-  </center>
+        </div>
 </footer>
 <!--fin de footer-->
 </section>

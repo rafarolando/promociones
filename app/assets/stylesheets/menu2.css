@@ -4,6 +4,7 @@
 	position: relative; /* Required */
 	border: 1px solid #999;
 	border-bottom: none;
+    width: 20%;
 }
 .dcjq-vertical-mega-menu .menu li a {
 	display: block;
@@ -102,7 +103,7 @@
 }
 .dcjq-vertical-mega-menu .menu .sub li a:hover {
 	color: #fff;
-	background: #000 url(../images/bullet_white.png) no-repeat 5px 8px;
+	background: #999 url(../images/bullet_white.png) no-repeat 5px 8px;
 }
 .dcjq-vertical-mega-menu .menu .sub ul li {
 	padding-right: 0;

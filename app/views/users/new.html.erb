@@ -10,6 +10,7 @@
     <% end %>
     <p>
     </p>
+    <div class="global">
     <%= form_for @user do |f| %>
     <% if @user.errors.any? %>
     <div class="error_messages">
@@ -52,4 +53,5 @@
         <%= f.submit "Acepto" %>
     </div>
     <% end %>
+    </div>
 </div>

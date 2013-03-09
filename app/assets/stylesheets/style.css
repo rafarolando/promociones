@@ -6,7 +6,7 @@
 
 body {
 	
-     background: url('../../images/body.png') scroll 0 0 no-repeat   rgba(0,0,0,0.65) ;   
+     background: url('../../images/body.png') scroll 0 0 no-repeat   rgba(100,100,100,0.65) ;
 	
 	margin: 0px;
     /*background-repeat: no-repeat-x;
@@ -26,11 +26,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 }
 
 header {
+    background: #efc5ca; /* Old browsers */
+    background: -moz-linear-gradient(top, #efc5ca 0%, #ba2737 92%, #f18e99 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efc5ca), color-stop(92%,#ba2737), color-stop(100%,#f18e99)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #efc5ca 0%,#ba2737 92%,#f18e99 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #efc5ca 0%,#ba2737 92%,#f18e99 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #efc5ca 0%,#ba2737 92%,#f18e99 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #efc5ca 0%,#ba2737 92%,#f18e99 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efc5ca', endColorstr='#f18e99',GradientType=0 ); /* IE6-9 */
     display: inline-block;
     width: 100%;
+    margin-top: 2%;
+    border-radius: 1%;
 }
 
 nav {
+    margin-top: 2%;
     width: 99%;
 }
 
@@ -47,51 +58,85 @@ nav ul {
 }
 
 nav ul li {
-
-    border-radius: 4px;
-    display: inline-block;
-    font-size: 12px;
-    height: 15px;
-    line-height: 15px;
+    display: inline;
     margin: 0px 5px 0px;
-    padding: 10px 20px;
-    vertical-align: top;
-    width: 10%;
 }
 
 nav ul li a {
-    color: #fff;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(50%,#f1f1f1), color-stop(51%,#e1e1e1), color-stop(100%,#f6f6f6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
+    width: 12%;
+    color: #000;
     display: inline-block;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
     display: inline-block;
-}
-
-nav ul li:hover {
- 
-    background: #333;
-    border: 1px solid #000;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px 3px #000;
-    color: #000;
+    height: 25px;
+    border-radius: 20%;
+    font-size: 12px;
+    vertical-align: bottom;
+    line-height: 15px;
+    padding-top: 8px;
 }
 
 nav ul li a:hover {
-    color: #fff;
+    background: rgb(252,255,244); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(252,255,244,1) 0%, rgba(223,229,215,1) 51%, rgba(179,190,173,1) 87%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,255,244,1)), color-stop(51%,rgba(223,229,215,1)), color-stop(87%,rgba(179,190,173,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(252,255,244,1) 0%,rgba(223,229,215,1) 51%,rgba(179,190,173,1) 87%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(252,255,244,1) 0%,rgba(223,229,215,1) 51%,rgba(179,190,173,1) 87%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(252,255,244,1) 0%,rgba(223,229,215,1) 51%,rgba(179,190,173,1) 87%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(252,255,244,1) 0%,rgba(223,229,215,1) 51%,rgba(179,190,173,1) 87%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 ); /* IE6-9 */
+    border-radius: 20%;
+    box-shadow: 0px 0px 4px 2px #000;
+    color: #000;
 }
 
+
 #pie {
- 
     margin: 20px 0px 0px 0px;
     width: 100%
 }
 
 footer {
     list-style: none;
+    background: #efc5ca; /* Old browsers */
+    background: -moz-linear-gradient(top, #efc5ca 0%, #ba2737 92%, #f18e99 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efc5ca), color-stop(92%,#ba2737), color-stop(100%,#f18e99)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #efc5ca 0%,#ba2737 92%,#f18e99 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #efc5ca 0%,#ba2737 92%,#f18e99 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #efc5ca 0%,#ba2737 92%,#f18e99 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #efc5ca 0%,#ba2737 92%,#f18e99 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efc5ca', endColorstr='#f18e99',GradientType=0 ); /* IE6-9 */
+    border-radius: 1%;
+    margin-bottom: 1%;
+    height:100px;
 }
-
+footer #men{
+  margin-top: 2%;
+}
+footer a {
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline;
+    text-align: center;
+    color: #ffffff;
+    font-size: 11px;
+}
+span{
+    font-family: bold;
+    font-size: 15px;
+    text-align: center;
+}
 #todo {
     width: 1000px;
     margin: 0px auto;
@@ -101,6 +146,7 @@ footer {
     margin: 10px 0px 0px 200px;
     padding: 0px 20px;
     width: 50%;
+    margin-top: -65px;
 }
 
 #titulo h1 {
@@ -109,7 +155,7 @@ footer {
 }
 
 #logo {
-    margin: 20px;
+    margin: 2%;
 }
 
 #logo, #titulo, #login {
@@ -152,8 +198,16 @@ footer {
 	background-color: #f9f9f9;
 	border-radius: 7px;
 	border-radius-color:red;
-	
-	
+}
+#slogan{
+    margin-top: 5%;
+    display: inline-table;
+    text-align: center;
+}
+#slogan p{
+    color: #ffffff;
+    font-family:cursive ;
+    font-size: 125%;
 }
  /*fin de cuerpo*/
 

@@ -19,7 +19,6 @@
 	</tr>
 	
 </table>
-
 <p>
   <b>Nombre:</b>
   <%= @empresa.nombre %>
@@ -44,7 +43,7 @@
   <b>Id usuario:</b>
   <%= @empresa.id_usuario %>
 </p>
-
-
+<div class="botontabla">
 <%= link_to 'Edit', edit_empresa_path(@empresa) %> |
 <%= link_to 'Back', empresas_path %>
+</div>
